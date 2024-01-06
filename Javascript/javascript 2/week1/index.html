@@ -13,26 +13,35 @@
         <label for="recipeTitle">Title: </label>
         <input type="text" id="recipeTitle" required />
 
-        <!-- Single ingredient input -->
+        <!-- ingredient input -->
         <label for="ingredientName">Ingredient Name: </label>
         <input type="text" id="ingredientName" required />
         <label for="ingredientAmount">Amount: </label>
-        <input type="text" id="ingredientAmount" />
+        <input type="text" id="ingredientAmount" required />
 
         <button type="button" onclick="addIngredient()">Add Ingredient</button>
-
-        <!-- Display added ingredients -->
+        <!-- Added ingredients -->
         <div id="ingredientList"></div>
 
         <label for="instructions">Instructions: </label>
         <textarea id="instructions" required></textarea>
 
+        <label for="cookingTime">Cooking Time (minutes): </label>
+        <input type="number" id="cookingTime" min="1" />
+
+        <button type="button" onclick="startCookingTimer()">
+          Start Cooking Timer
+        </button>
+
         <button type="button" onclick="handleFormSubmission()">
           Preview Recipe
         </button>
+        <label for="searchWord">Search Recipe:</label>
+        <input type="text" id="searchWord" />
+        <button type="button" onclick="searchRecipe()">Search</button>
       </form>
     </div>
-    <div id="newRecipeContainer"></div>
+    <div class="recipe-grid" id="recipeGrid"></div>
     <script src="recipe-app.js" defer></script>
   </body>
 </html>
