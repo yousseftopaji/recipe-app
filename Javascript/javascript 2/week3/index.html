@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="recipeContainer"></div>
+    <div id="newRecipe">
+      <form id="recipeForm">
+        <label for="recipeTitle">Title: </label>
+        <input type="text" id="recipeTitle" required />
+
+        <!-- ingredient input -->
+        <label for="ingredientName">Ingredient Name: </label>
+        <input type="text" id="ingredientName" required />
+        <label for="ingredientAmount">Amount: </label>
+        <input type="text" id="ingredientAmount" required />
+
+        <button type="button" onclick="addIngredient()">Add Ingredient</button>
+        <!-- Added ingredients -->
+        <div id="ingredientList"></div>
+
+        <label for="instructions">Instructions: </label>
+        <textarea id="instructions" required></textarea>
+
+        <label for="cookingTime">Cooking Time (minutes): </label>
+        <input type="number" id="cookingTime" min="1" />
+
+        <button type="button" onclick="startCookingTimer()">
+          Start Cooking Timer
+        </button>
+
+        <button type="button" onclick="handleFormSubmission()">
+          Preview Recipe
+        </button>
+        <label for="searchWord">Search Recipe:</label>
+        <input type="text" id="searchWord" />
+        <button type="button" onclick="searchRecipe()">Search</button>
+      </form>
+    </div>
+    <div class="recipe-grid" id="recipeGrid"></div>
+    <script src="recipe-app.js" defer></script>
+  </body>
+</html>
