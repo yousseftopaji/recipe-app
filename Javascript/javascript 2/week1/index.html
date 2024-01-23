@@ -7,41 +7,85 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="recipeContainer"></div>
     <div id="newRecipe">
       <form id="recipeForm">
-        <label for="recipeTitle">Title: </label>
-        <input type="text" id="recipeTitle" required />
+        <h1>Add a new recipe</h1>
+
+        <label for="recipeTitle">Title:</label>
+        <input
+          type="text"
+          id="recipeTitle"
+          required
+          placeholder="Enter recipe title"
+        />
 
         <!-- ingredient input -->
-        <label for="ingredientName">Ingredient Name: </label>
-        <input type="text" id="ingredientName" required />
-        <label for="ingredientAmount">Amount: </label>
-        <input type="text" id="ingredientAmount" required />
+        <label for="ingredientName">Ingredient Name:</label>
+        <input
+          type="text"
+          id="ingredientName"
+          required
+          placeholder="Enter ingredient name"
+        />
+        <label for="ingredientAmount">Amount:</label>
+        <input
+          type="text"
+          id="ingredientAmount"
+          required
+          placeholder="Enter amount"
+        />
 
         <button type="button" onclick="addIngredient()">Add Ingredient</button>
+
         <!-- Added ingredients -->
         <div id="ingredientList"></div>
 
-        <label for="instructions">Instructions: </label>
-        <textarea id="instructions" required></textarea>
+        <label for="instructions">Instructions:</label>
+        <textarea
+          id="instructions"
+          required
+          placeholder="Enter recipe instructions"
+        ></textarea>
 
-        <label for="cookingTime">Cooking Time (minutes): </label>
-        <input type="number" id="cookingTime" min="1" />
+        <button type="button" onclick="handleFormSubmission()">
+          Preview Recipe
+        </button>
+
+        <label for="cookingTime">Cooking Time (minutes):</label>
+        <input
+          type="number"
+          id="cookingTime"
+          min="1"
+          placeholder="Enter cooking time"
+        />
 
         <button type="button" onclick="startCookingTimer()">
           Start Cooking Timer
         </button>
 
-        <button type="button" onclick="handleFormSubmission()">
-          Preview Recipe
-        </button>
         <label for="searchWord">Search Recipe:</label>
-        <input type="text" id="searchWord" />
+        <input type="text" id="searchWord" placeholder="Enter search keyword" />
         <button type="button" onclick="searchRecipe()">Search</button>
+
+        <!-- New ingredient price search input and button -->
+        <label for="ingredientPrice">Ingredient Price Search:</label>
+        <input
+          type="text"
+          id="ingredientPrice"
+          placeholder="Enter ingredient name"
+        />
+        <button type="button" onclick="searchIngredientPrice()">
+          Search Price
+        </button>
+
+        <button type="button" onclick="sortRecipesByIngredients()">
+          Sort by Ingredients
+        </button>
       </form>
     </div>
+
     <div class="recipe-grid" id="recipeGrid"></div>
-    <script src="recipe-app.js" defer></script>
+    <div id="recipeContainer" class="recipe-container"></div>
+    <script src="recipe-app.js" type="module" defer></script>
   </body>
 </html>
