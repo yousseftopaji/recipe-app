@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to display found ingredients in a new container
     function displayFoundIngredients(foundIngredients) {
       const resultsContainer = document.getElementById("searchResults");
-      resultsContainer.innerHTML = ""; // Clear previous results
+      resultsContainer.innerHTML = "";
 
       if (foundIngredients.length > 0) {
         foundIngredients.forEach((ingredient) => {
