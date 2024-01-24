@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ingredientList.appendChild(ingredientItem);
     }
 
-    // assembling the entered data of new ingredients and amounts and return them.
+    // assembling the entered data of new names and amounts and return ingredients.
     function getIngredientsList() {
       const ingredientList = document.getElementById("ingredientList");
       const ingredients = [];
@@ -208,18 +208,32 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      const foundIngredient = recipes
+      const foundIngredients = recipes
         .flatMap((recipe) => recipe.ingredients)
-        .find((ingredient) => ingredient.NAME.toLowerCase() === ingredientName);
-
-      if (foundIngredient) {
-        alert(
-          `The price of ${foundIngredient.NAME} is ${foundIngredient.price},-`
+        .filter((ingredient) =>
+          ingredient.NAME.toLowerCase().includes(ingredientName)
         );
-      } else {
-        alert(`Price information not found for ${ingredientName}.`);
-      }
+
+      displayFoundIngredients(foundIngredients);
     };
+
+    // Function to display found ingredients in a new container
+    function displayFoundIngredients(foundIngredients) {
+      const resultsContainer = document.getElementById("searchResults");
+      resultsContainer.innerHTML = ""; // Clear previous results
+
+      if (foundIngredients.length > 0) {
+        foundIngredients.forEach((ingredient) => {
+          const resultItem = document.createElement("div");
+          resultItem.innerText = `${ingredient.NAME}: ${
+            ingredient.price || "N/A"
+          }`;
+          resultsContainer.appendChild(resultItem);
+        });
+      } else {
+        resultsContainer.innerHTML = "<p>No matching ingredients found.</p>";
+      }
+    }
 
     // Sort the recipe array by the amount of ingredients
     window.sortRecipesByIngredients = function () {
