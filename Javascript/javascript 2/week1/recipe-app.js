@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // cooking timer function. The user determines how much time until the alert appears on the screen.
     window.startCookingTimer = function () {
       const cookingTimeInput = document.getElementById("cookingTime");
-      const cookingTime = parseInt(cookingTimeInput.value, 10);
+      const cookingTime = cookingTimeInput.value;
       let cookingTimer;
 
       if (isNaN(cookingTime) || cookingTime <= 0) {
