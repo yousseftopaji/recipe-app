@@ -7,9 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fetching the data from the API and adding it to the empty recipes array
     try {
       const response = await fetch(
-        "https://raw.githubusercontent.com/yousseftopaji/yousseftopaji.github.io/main/recipe-app.json"
+        "https://raw.githubusercontent.com/yousseftopaji/recipeApp-json/main/recipe-app.json"
       );
-
       if (!response.ok) {
         throw new Error("Failed to fetch data from the API");
       }
